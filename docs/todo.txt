@@ -19,3 +19,19 @@ Export templates and clean up. Probably want to store them in a separate repo. M
 Update the readme at some point.
 
 Start developing more web features? Try out packages that wouldn't work in a company setting? Playground it? Who knoooows.
+
+APP IDEAS
+
+Currency exchange rates with a public API to demonstrate page regeneration. As rates update daily, it should be a good way to display regenerating routes. It also should have
+a good amount of data.
+
+Downside is that rates generally always change day to day, so a daily rebuild would probably be better for this app. 
+But we don't have a great way to demonstrate something that infrequently changes like Store / Site / Status info where ISR would be better. 
+
+Steps: 
+- Determine app fetch (historical range based on current date? only for usd/eur/yen?)
+- Build out static routes / props to generate based on fetch
+- Build out page to display data (ROUGH)
+- Start looking into ISR to manually trigger rebuilds
+- Update page to look a little fancier.
+- Look into azure hosting
