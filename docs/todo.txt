@@ -1,0 +1,21 @@
+Set up lint, prettier, basic code formatter rules.
+Set up basic nextjs app
+Install needed npm packages
+Get local running nextjs app
+Get nextjs app running in static mode.
+
+Personalize app to being more than just a default - set up for experimentation.
+Look into ISR configuration (LOCAL)
+- This will probably include setting up the api locally. Not entirely sure if anything is needed other than the app server.
+- Most likely triggered via a postman 2 setup. If we do test this way, then the collection should be stored in a tools folder of this repository
+
+Look into personal project azure hosting options
+Set up node js app server.
+Look into deployment options. Not really worth paying for a devops pipeline if it's more than 5$ a month, so it might be azure cli city.
+Deploy and run the server statically
+Confirm that ISR works via postmanning the server.
+
+Export templates and clean up. Probably want to store them in a separate repo. Maybe in the same to keep it simple. Maybe in another to pad the github.
+Update the readme at some point.
+
+Start developing more web features? Try out packages that wouldn't work in a company setting? Playground it? Who knoooows.
