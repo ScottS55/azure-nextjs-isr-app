@@ -32,3 +32,9 @@ Static Azure Apps currently do not support ISR, so this project opts to use a st
 - 'npm run dev' to run a SSR server for local testing
 - 'npm run build' to generate the static site for production
 - 'npm run start' after a build to serve for static serving in local.
+
+## Tools for Development
+
+- Postman. A collection for debugging localhost will be included at some point.
+- VSCode. Settings for formatting are included in the top level .vscode folder.
+- Prettier + Eslint. Settings for formatting are included in src/ui.
