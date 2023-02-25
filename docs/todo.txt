@@ -1,8 +1,8 @@
-Set up lint, prettier, basic code formatter rules.
-Set up basic nextjs app
-Install needed npm packages
-Get local running nextjs app
-Get nextjs app running in static mode.
+Set up lint, prettier, basic code formatter rules. - DONE
+Set up basic nextjs app - DONE
+Install needed npm packages - DONE
+Get local running nextjs app - DONE
+Get nextjs app running in static mode. - DONE
 
 Personalize app to being more than just a default - set up for experimentation.
 Look into ISR configuration (LOCAL)

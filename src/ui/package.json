@@ -24,12 +24,12 @@
         "npm": ">=8.1.0"
     },
     "scripts": {
-        "build": "build:next lint",
+        "build": "run-p build:next lint",
         "build:next": "next build",
         "dev": "run-s lint dev:next",
         "dev:next": "node server.js",
         "export": "next export",
         "lint": "next lint"
     },
-    "version": "0.1.0"
+    "version": "0.2.0"
 }
