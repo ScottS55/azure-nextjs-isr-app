@@ -3,14 +3,14 @@
 </h3>
 
 <p align="center">
-  A Static Web App based on <a href="https://nextjs.org/">NextJS</a>, <a href="https://www.typescriptlang.org/">TypeScript</a>, and hosted in <a href="https://azure.microsoft.com/en-us">Azure<br />
+  A Static Web App based on <a href="https://nextjs.org/">NextJS</a>, <a href="https://www.typescriptlang.org/">TypeScript</a>, and hosted in <a href="https://azure.microsoft.com/en-us">Azure.<br />
 </p>
 
 ## Overview
 
 This web app is built to demonstrate the following:
 - A Statically Generated Web App using NextJS and Typescript.
-- <a href="https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration">Incremental Static Regeneration</a>, removing the need for schedule static page rebuilds.
+- <a href="https://nextjs.org/docs/basic-features/data-fetching/incremental-static-regeneration">Incremental Static Regeneration</a>, removing the need for scheduled static page rebuilds.
 - Hosting the Static ISR app in an Azure App Service.
 
 Static Azure Apps currently do not support ISR, so this project opts to use a standard app service built on nodejs instead.
