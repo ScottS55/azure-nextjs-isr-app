@@ -40,7 +40,7 @@ export default function CurrencyPage(props: CurrencyPageProps) {
   const { rates, currency } = props;
   return (
     <div>
-      <h1>Latest Exchange Rates for: {currency} </h1>
+      <h1>Latest Exchange Rates for {currency} </h1>
       {rates
         .filter(rate => rate.name != currency)
         .map((rate, index) => (

@@ -10,8 +10,8 @@ export default function RateContainer(props: ExchangeRateProps) {
 
   return (
     <div className={styles.rateContainer}>
-      <span>{rate.name}</span>
-      <span>Rate: {rate.value}</span>
+      <span className={styles.rateName}>{rate.name}</span>
+      <span>Exchange Rate: {rate.value}</span>
     </div>
   );
 }

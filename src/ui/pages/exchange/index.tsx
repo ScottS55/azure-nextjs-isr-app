@@ -21,7 +21,7 @@ export default function ExchangePage(props: ExchangePageProps) {
   const { rates } = props;
   return (
     <div>
-      <h1>List of available exchange rates:</h1>
+      <h1>List of available Exchange Rates:</h1>
       {rates.map((rate, index) => (
         <a href={`/exchange/${rate.name}`} key={index}>
           {rate.name}
