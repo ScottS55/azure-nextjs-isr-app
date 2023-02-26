@@ -1,10 +1,9 @@
 import { getLatestRates } from 'api/exchangeRate';
 import { parseRates } from 'api/utils';
-import RateContainer from 'components/RateContainer/RateContainer';
 import { ExchangeRate } from 'types/rates';
 
 export async function getStaticProps() {
-  const ratesModel = await getLatestRates();
+  const ratesModel = await getLatestRates('USD');
   let rates = parseRates(ratesModel.rates);
 
   return {
@@ -19,12 +18,15 @@ interface ExchangePageProps {
 }
 
 export default function ExchangePage(props: ExchangePageProps) {
+  const { rates } = props;
   return (
     <div>
       <h1>List of available exchange rates:</h1>
-      {props.rates.map((rate, index) => {
-        return <RateContainer rate={rate} key={index} />;
-      })}
+      {rates.map((rate, index) => (
+        <a href={`/exchange/${rate.name}`} key={index}>
+          {rate.name}
+        </a>
+      ))}
     </div>
   );
 }

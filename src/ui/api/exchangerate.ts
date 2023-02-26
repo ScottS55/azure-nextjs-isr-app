@@ -1,7 +1,7 @@
 import { RatesModel } from "types/rates";
 
-export async function getLatestRates(): Promise<RatesModel> {
-    const ratesResult = await fetch(getExchangeRateUrl('USD'));
+export async function getLatestRates(base: string): Promise<RatesModel> {
+    const ratesResult = await fetch(getExchangeRateUrl(base));
     const rates = await ratesResult.json();
     return rates;
 }

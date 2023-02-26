@@ -1,15 +1,14 @@
 import { getLatestRates } from 'api/exchangeRate';
 import { parseRates } from 'api/utils';
+import RateContainer from 'components/RateContainer/RateContainer';
+import { GLOBAL_CURRENCES } from 'constants/currencies';
 import { ExchangeRate } from 'types/rates';
 
 export async function getStaticPaths() {
-  const ratesModel = await getLatestRates();
-  let rates = parseRates(ratesModel.rates);
-
-  let paths = rates.map(rate => {
+  let paths = GLOBAL_CURRENCES.map(currency => {
     return {
       params: {
-        rate: rate,
+        currency: currency,
       },
     };
   });
@@ -20,26 +19,33 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params: { rate } }: { params: { rate: ExchangeRate } }) {
-  // TODO - Get a historical graph of the rate based on the current date - 6 months.
+export async function getStaticProps({ params: { currency } }: { params: { currency: string } }) {
+  const ratesModel = await getLatestRates(currency);
+  let rates = parseRates(ratesModel.rates);
+
   return {
     props: {
-      rate: rate,
+      currency: currency,
+      rates: rates,
     },
   };
 }
 
 interface CurrencyPageProps {
-  rate: ExchangeRate;
+  currency: string;
+  rates: ExchangeRate[];
 }
 
 export default function CurrencyPage(props: CurrencyPageProps) {
-  const { rate } = props;
+  const { rates, currency } = props;
   return (
     <div>
-      <h1>Latest Rates</h1>
-      <p>Currency: {rate.name}</p>
-      <p>Rate: {rate.value}</p>
+      <h1>Latest Exchange Rates for: {currency} </h1>
+      {rates
+        .filter(rate => rate.name != currency)
+        .map((rate, index) => (
+          <RateContainer rate={rate} key={index} />
+        ))}
     </div>
   );
 }
