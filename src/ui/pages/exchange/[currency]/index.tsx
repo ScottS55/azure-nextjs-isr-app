@@ -1,17 +1,15 @@
 import { getLatestRates } from 'api/exchangerate';
+import { parseRates } from 'api/utils';
+import { ExchangeRate } from 'types/rates';
 
 export async function getStaticPaths() {
   const ratesModel = await getLatestRates();
+  let rates = parseRates(ratesModel.rates);
 
-  // TODO - Maybe bust this out into a util file
-  let paths = Object.keys(ratesModel.rates).map(key => {
-    let currencyName = key;
-    let currencyRate = ratesModel.rates[key];
-
+  let paths = rates.map(rate => {
     return {
       params: {
-        name: currencyName,
-        rate: currencyRate,
+        rate: rate,
       },
     };
   });
@@ -22,27 +20,26 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params: { name, rate } }: { params: { name: string; rate: number } }) {
+export async function getStaticProps({ params: { rate } }: { params: { rate: ExchangeRate } }) {
   // TODO - Get a historical graph of the rate based on the current date - 6 months.
   return {
     props: {
-      name: name,
       rate: rate,
     },
   };
 }
 
-interface ExchangePageProps {
-  name: string;
-  rate: number;
+interface CurrencyPageProps {
+  rate: ExchangeRate;
 }
 
-export default function Exchange(props: ExchangePageProps) {
+export default function CurrencyPage(props: CurrencyPageProps) {
+  const { rate } = props;
   return (
     <div>
       <h1>Latest Rates</h1>
-      <p>Currency: {props.name}</p>
-      <p>Rate: {props.rate}</p>
+      <p>Currency: {rate.name}</p>
+      <p>Rate: {rate.value}</p>
     </div>
   );
 }
