@@ -1,4 +1,4 @@
-import { getLatestRates } from 'api/exchangerate';
+import { getLatestRates } from 'api/exchangeRate';
 import { parseRates } from 'api/utils';
 import { ExchangeRate } from 'types/rates';
 
