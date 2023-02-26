@@ -17,16 +17,20 @@ interface ExchangePageProps {
   rates: ExchangeRate[];
 }
 
+// TODO - Make this a proper index page with details on what the currency pages are, maybe a search bar.
+// Also maybe break the list out into a sidebar component. Bonus points for using cookies to add 'favorite' rates
 export default function ExchangePage(props: ExchangePageProps) {
   const { rates } = props;
   return (
     <div>
       <h1>List of available Exchange Rates:</h1>
-      {rates.map((rate, index) => (
-        <a href={`/exchange/${rate.name}`} key={index}>
-          {rate.name}
-        </a>
-      ))}
+      {rates.map((rate, index) => {
+        return (
+          <div key={index}>
+            <a href={`/exchange/${rate.name}`}>{rate.name}</a>
+          </div>
+        );
+      })}
     </div>
   );
 }
